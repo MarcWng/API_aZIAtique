@@ -1,11 +1,24 @@
-CMakeLists.txt.user
+# cmake
 CMakeCache.txt
-CMakeFiles
-CMakeScripts
-Testing
-Makefile
 cmake_install.cmake
-install_manifest.txt
-compile_commands.json
-CTestTestfile.cmake
-_deps
+CMakeFiles
+
+# Binary
+bin
+lib
+build
+
+# MVSC
+*.vcxproj*
+*.sln
+x64
+x32
+.vs
+aZIAtique.dir
+Debug
+
+# GNU
+Makefile
+
+# VSC
+.vscode
