@@ -13,24 +13,24 @@
 #include <memory>
 
 #include "Impl/Common.hpp"
+#include "Interface/IQueue.hpp"
 
 namespace aZIAt {
-    class AModule : public std::enable_shared_from_this<AModule> {
+    class AZIAT_SHARED_API AModule : public std::enable_shared_from_this<AModule> {
         public:
             virtual ~AModule() = default;
 
-            virtual Uuid getUuid() const = 0;
-            virtual std::string getName() const = 0;
+            [[nodiscard]] virtual Uuid getUuid() const = 0;
 
-            virtual void call(std::string &_func, std::any &_data) = 0;
-            virtual void call(Flag _flag, ByteArray &_data) = 0;
+            virtual void call(Request &_request, ReqQueue &_queue) = 0;
 
             virtual std::ostream &operator<<(std::ostream &_os) const;
 
             virtual operator std::string() const = 0;
 
-        private:
+        protected:
             Uuid m_uuid;
+            Flag m_flag;
     };
 }
 

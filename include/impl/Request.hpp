@@ -14,7 +14,7 @@
 #include "Impl/Respond.hpp"
 
 namespace aZIAt {
-    class Request {
+    class AZIAT_SHARED_API Request {
         public:
             enum class Owner : uint8_t {
                 Master,
@@ -27,6 +27,7 @@ namespace aZIAt {
                     std::string func;
                 };
 
+                __TargetHidden hidden;
                 std::shared_ptr<AModule> from;
             };
 
@@ -34,18 +35,18 @@ namespace aZIAt {
             Context context;
             __ModuleRequest module;
 
-            void send(const std::shared_ptr<Respond> &_resp);
+            void send(const Respond &_resp);
             void error(Result _res);
 
             [[nodiscard]] Result getState() const;
-            [[nodiscard]] Result wait(std::shared_ptr<Respond> &_resp);
+            [[nodiscard]] Result wait(Respond &_resp);
 
             void reset();
 
         private:
             bool m_done = false;
             Result m_res;
-            std::shared_ptr<Respond> m_resp;
+            Respond m_resp;
     };
 }
 

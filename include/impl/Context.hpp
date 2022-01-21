@@ -15,7 +15,7 @@
 #include "Interface/ISocket.hpp"
 
 namespace aZIAt {
-    struct Context {
+    struct AZIAT_SHARED_API Context {
         public:
             enum class Target : uint8_t {
                 Module,

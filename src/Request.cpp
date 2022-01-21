@@ -8,10 +8,10 @@
 #include "Impl/Request.hpp"
 
 namespace aZIAt {
-    void Request::send(const std::shared_ptr<Respond> &_resp)
+    void Request::send(const Respond &_resp)
     {
         m_res = Result::Done;
-        m_resp = _resp;
+        m_resp = std::move(_resp);
         m_done = true;
     }
 
@@ -26,7 +26,7 @@ namespace aZIAt {
         return m_res;
     }
 
-    Result Request::wait(std::shared_ptr<Respond> &_resp)
+    Result Request::wait(Respond &_resp)
     {
         _resp = m_resp;
         return m_res;

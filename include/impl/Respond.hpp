@@ -14,25 +14,27 @@
 #include "Impl/Common.hpp"
 
 namespace aZIAt {
-    class Respond {
-        Respond(const Respond &_resp);
+    class AZIAT_SHARED_API Respond {
+        public:
+            Respond() = default;
+            Respond(const Respond &_resp);
 
-        enum class Owner : uint8_t {
-            Master,
-            Module,
-            Hidden
-        };
+            enum class AZIAT_SHARED_API Owner : uint8_t {
+                Master,
+                Module,
+                Hidden
+            };
 
-        struct MasterRespond {
-            MasterRequest request;
+            struct AZIAT_SHARED_API MasterRespond {
+                MasterRequest request;
 
-            std::variant<std::vector<std::shared_ptr<AModule>>,
-                ByteArray> data;
-        };
+                std::variant<std::vector<std::shared_ptr<AModule>>,
+                    ByteArray> data;
+            };
 
-        Owner owner;
+            Owner owner;
 
-        std::variant<MasterRespond, ByteArray, std::any> result;
+            std::variant<MasterRespond, ByteArray, std::any> result;
     };
 }
 

@@ -12,7 +12,7 @@
 #include "Impl/Ip4.hpp"
 
 namespace aZIAt {
-    class ISocket {
+    class AZIAT_SHARED_API ISocket {
         public:
             enum class Status {
                 Done,

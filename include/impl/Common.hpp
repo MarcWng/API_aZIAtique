@@ -13,6 +13,8 @@
 
 #include <cstdint>
 
+#include "Export.hpp"
+
 namespace aZIAt {
     using ByteArray = std::vector<uint8_t>;
     using Flag = uint16_t;
@@ -29,6 +31,7 @@ namespace aZIAt {
         Traitement,
         FlagError,
         ModuleError,
+        ModuleCrash,
         MasterError,
         DoneNR,
         Done

@@ -13,10 +13,12 @@
 
 #include <cstdint>
 
+#include "Export.hpp"
+
 namespace aZIAt {
     using Port = uint16_t;
 
-    class Ip4 {
+    class AZIAT_SHARED_API Ip4 {
         public:
             Ip4(const std::string &_ip);
             Ip4(uint8_t _byte1, uint8_t _byte2, uint8_t _byte3, uint8_t _byte4);
